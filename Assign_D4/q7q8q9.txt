@@ -24,6 +24,11 @@ and we can change its data values and a list can
 be indexed, sliced, and changed and each element can
 be accessed using its index value in the list.
 
+1. Python lists are resizable, C++ arrays are not
+2. C++ arrays are a contiguous allocation of objects in memory, Python lists are a contiguous allocation of references in memory
+
+
+
 
 
 The following are the main characteristics of a List:
