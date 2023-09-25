@@ -8,24 +8,6 @@ marks.df = data.frame(
   student_names = stu_names,
   age = age,
   score = score
-  )
+)
 print(marks.df)
-
-
-#print no of colmuns
-ncol(marks.df)
-
-#print no of rows
-nrow(marks.df)
-
-#1st 3 rows
-head(marks.df,3)
-
-#last 3 rows
-tail(marks.df,3)
-
-#general information
-summary(marks.df)
-
-#statistical info
-str(marks.df)
+print(marks.df[c(3,5),c(1,3)])
