@@ -5,6 +5,12 @@
 # C. Remove 'Jenny' and her favourite colour
 # D. Sort and print students and their favourite colours alphabetically by name
 
+# import matplotlib.pyplot as plt
+# import numpy as np
+# import pandas as pd
+#
+# plt.s
+
 people = {'Arham':'Blue','Lisa':'Yellow','Vinod':'Purple','Jenny':'Pink'}
 print(f"Original DIctionary  :{people} ")
 def count():
