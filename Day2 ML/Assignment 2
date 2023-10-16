@@ -1,0 +1,24 @@
+1. Consider each of following datasets and do below operations.
+i) Read the dataset.
+ii) Display first 5 and last 5 records. 
+iii) Display info and describe the dataset.
+iv) Find out null values.
+v) Plot Various graphs. e.g. barchart, scatterplot, histogram, lineplot, pairplot and all other.
+vii)  Find out correlation and covariance in the dataset.
+
+Datasets:
+
+i) ToyotaCorolla.csv
+ii) Engine.csv
+iii) delivery_time.csv
+iv) SAT-GPA.csv
+v) TvMarketing.csv
+vi) NewspaperData.csv
+vii) claimants.csv
+viii) framingham.csv
+ix) crime_data.csv
+x) Universities.csv
+xi) wine.csv
+xii) glass.csv
+
+2. What is Supervised and Unsupervised machine learning?

@@ -1,0 +1,125 @@
+1. Write a NumPy program to create an array with the values 1, 7, 13, 105    and determine the size of the memory occupied by the array.
+
+2. Write a NumPy program to create an element-wise comparison (greater, greater_equal, less and less_equal) of two given arrays.
+
+3. Write a NumPy program to create an array of integers from 30 to 70.
+
+4. Write a NumPy program to create an array of all even integers from 20 to 80.
+
+5. Write a NumPy program to create an array of all odd integers from 20 to 80.
+
+6. Write a NumPy program to generate an array of 15 random numbers from 10 to 40.
+
+7. Write a NumPy program to generate an array of 10 random numbers from 30 to 50.
+
+8. Create any two arrays & perform various mathematical operations.
+    i.e. Addition, Substraction, Multiplication, Divide.
+
+9. Write a NumPy program to create a 3x4 matrix filled with values from 10 to 21.
+
+10. Write a NumPy program to create a 3x3 identity matrix, i.e. the diagonal elements are 1, the rest are 0.
+
+11. Write a NumPy program to find the number of rows and columns in a given matrix. 
+
+12. Write a NumPy program to create a 5x5 zero matrix with elements on the main diagonal equal to 1, 2, 3, 4, 5.
+
+13. Write a NumPy program to create a 3x3x3 array filled with arbitrary values.
+
+14. Write a NumPy program to create a 2x3x4 array filled with arbitrary values.
+
+15. Write a NumPy program to convert a list of numeric values into a one-dimensional NumPy array.
+
+16. Write a NumPy program to create a 3x3 matrix with values ranging from 2 to 10.
+
+17. Write a NumPy program to create an array with values ranging from 12 to 38.
+
+18. Write a NumPy program to reverse an array (the first element becomes the last).
+
+19. Write a NumPy program to get the element-wise remainder of an array of division.
+
+20. Write a NumPy program to get the element-wise remainder of an array of numbers from 20 to 50 which are divisible by 3.
+
+21. Write a Pandas program to create a dataframe from a dictionary and display it.
+
+22. i) Create a list of empids and names (10 employees).
+   ii) Convert list into Series.
+   iii) Print type of Series.
+   iv) Convert Series into DataFrame.
+   v) a) Display all records.
+      b) Display first five records.
+      c) Display last five records.
+      d) Display first two and last two records.
+      e) Display name of 5th employee.
+      f) Display record of 4th employee.
+   vi) Save the record in csv file (MyRecord.csv)
+
+23. i) Read the MyRecord.csv file.
+    ii) Create a new column Salary.
+
+24. Refer the dataset "Advertising.csv" and perform following tasks.
+i) Read the dataset "Advertising.csv" in data frame.
+
+ii) Print first five records of dataset.
+
+iii) print last five records from dataset.
+
+iv) display the column names of the dataset.
+
+v) display last three records from dataset.
+
+vi) display the information about the dataset and analyse the data.
+
+vii) display data types of each columns.
+ 
+viii) check for null values in the dataset and display the sum of null values inside the column.
+
+ix) drop a column 'radio' from a dataset and display first ten records.
+
+x) increase the sales by 10% and add a new column "updated_sales" in dataframe.
+
+xi) display shape of data.
+
+25. Refer the dataset "Salaries.csv" and perform following tasks.
+i) Read the dataset in dataframe.
+
+ii) display first five records.
+
+iii) display first ten records.
+
+iv) display last five records.
+
+v) display last ten records.
+
+vi) display the columns inside the dataset.
+
+vii) display shape of data.
+
+viii) describe the dataset.
+
+ix) display the information about the dataset and analyse the data.
+
+x) display types of each columns.
+
+xi) Find out maximum,minimum,mean,median,standard deviation value of each column.
+
+xii) check for null values in the dataset and display the sum of null values inside the column.
+
+xiii) drop all null values.
+
+xiv) a) display records whose salary is greater than 50000.
+     b) display records whose salary is less than 20000.
+     c) display records whose salary is between 20000 to 50000.
+     d) display records whose salary is greater than 100000.
+     e) display records whose salary is less than 100000.
+
+xv)  a) display records whose discipline is A.
+     b) display records whose discipline is B.
+     c) display records whose service is greater than 10.
+     d) display records whose service is less than 5.
+
+xvi) a) display records of phd and salary.
+     b) display records of rank, sex and salary.
+     c) display records without salary.
+     d) display first 50 records with rank,service and salary.
+     e) display records whose rank is Prof.
+     f) display records whose rank is AssocProf. 
