@@ -1,0 +1,287 @@
+
+Database Technologies – Assignment 5
+
+Note : To solve below queries use “spj” database
+
+1. Display all the Suppliers, belonging to cities starting with the letter ‘L’.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| classwork_db       |
+| dbda_db            |
+| hr                 |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sales              |
+| spj                |
+| sys                |
++--------------------+
+9 rows in set (0.01 sec)
+
+mysql> use spj;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+
+mysql> select database();
++------------+
+| database() |
++------------+
+| spj        |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select * from S;
++------+-------+--------+--------+
+| S#   | Sname | status | city   |
++------+-------+--------+--------+
+| S1   | Smith |     20 | London |
+| S2   | Jones |     10 | Paris  |
+| S3   | Blake |     30 | Paris  |
+| S4   | Clark |     20 | London |
+| S5   | Adams |     30 | Athens |
++------+-------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from S where city like "L%";
++------+-------+--------+--------+
+| S#   | Sname | status | city   |
++------+-------+--------+--------+
+| S1   | Smith |     20 | London |
+| S4   | Clark |     20 | London |
++------+-------+--------+--------+
+2 rows in set (0.00 sec)
+
+----------------------------------------------------------------------------------------------------------------
+
+		
+2. Display all the Jobs, with the third letter in JNAME as ‘n’.
+
+mysql> select * from J;
++----+----------+--------+
+| J# | Jname    | City   |
++----+----------+--------+
+| J1 | Sorter   | Paris  |
+| J2 | Punch    | Rome   |
+| J3 | Reader   | Athens |
+| J4 | Console  | Athens |
+| J5 | Collator | London |
+| J6 | Terminal | Oslo   |
+| J7 | Tape     | London |
++----+----------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select * from J where Jname like "__L%";
++----+----------+--------+
+| J# | Jname    | City   |
++----+----------+--------+
+| J5 | Collator | London |
++----+----------+--------+
+1 row in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------
+
+3. Display all the Supplier names with the initial letter capital.
+
+
+mysql> select * from S;
++------+-------+--------+--------+
+| S#   | Sname | status | city   |
++------+-------+--------+--------+
+| S1   | Smith |     20 | London |
+| S2   | Jones |     10 | Paris  |
+| S3   | Blake |     30 | Paris  |
+| S4   | Clark |     20 | London |
+| S5   | Adams |     30 | Athens |
++------+-------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select upper(left(Sname, 1)) from S;
++-----------------------+
+| upper(left(Sname, 1)) |
++-----------------------+
+| S                     |
+| J                     |
+| B                     |
+| C                     |
+| A                     |
++-----------------------+
+5 rows in set (0.00 sec)
+
+mysql> 
+
+--------------------------------------------------------------------------------------------------------------------
+
+4. Display all the Supplier names in upper case.
+
+mysql> select upper(Sname) from S;
++--------------+
+| upper(Sname) |
++--------------+
+| SMITH        |
+| JONES        |
+| BLAKE        |
+| CLARK        |
+| ADAMS        |
++--------------+
+5 rows in set (0.00 sec)
+
+-------------------------------------------------------------------------------------------------------------------
+
+5. Display all the Supplier names in lower case.
+
+mysql> select lower(Sname) from S;
++--------------+
+| lower(Sname) |
++--------------+
+| smith        |
+| jones        |
+| blake        |
+| clark        |
+| adams        |
++--------------+
+5 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+6. Display the Supplier names and the lengths of the names.
+
+mysql> select Sname, length(Sname) as length_of_Sname from S;
++-------+-----------------+
+| Sname | length_of_Sname |
++-------+-----------------+
+| Smith |               5 |
+| Jones |               5 |
+| Blake |               5 |
+| Clark |               5 |
+| Adams |               5 |
++-------+-----------------+
+5 rows in set (0.00 sec)
+
+-----------------------------------------------------------------------------------------------------------------------
+
+7. Display the current day (e.g. Thursday).
+
+mysql> select dayname(now());
++----------------+
+| dayname(now()) |
++----------------+
+| Saturday       |
++----------------+
+1 row in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------
+
+8. Display the minimum Status in the Supplier table.
+
+mysql> select min(status) from S;
++-------------+
+| min(status) |
++-------------+
+|          10 |
++-------------+
+1 row in set (0.00 sec)
+
+-----------------------------------------------------------------------------------------------------------------------
+
+9. Display the maximum Weight in the Parts table.
+
+mysql> select max(weight) from P;
++-------------+
+| max(weight) |
++-------------+
+|          19 |
++-------------+
+1 row in set (0.00 sec)
+
+-----------------------------------------------------------------------------------------------------------------------
+
+10. Display the average Weight of the Parts.
+
+mysql> select avg(weight) from P;
++-------------+
+| avg(weight) |
++-------------+
+|     15.1667 |
++-------------+
+1 row in set (0.00 sec)
+
+-----------------------------------------------------------------------------------------------------------------------
+
+11. Display the total Quantity sold for part ‘P1’.
+
+mysql> select * from SP;
++----+----+----+------+
+| S# | P# | J# | QTY  |
++----+----+----+------+
+| S1 | P1 | J1 |  200 |
+| S1 | P1 | J4 |  700 |
+| S2 | P3 | J1 |  400 |
+| S2 | P3 | J2 |  200 |
+| S2 | P3 | J3 |  200 |
+| S2 | P3 | J4 |  500 |
+| S2 | P3 | J5 |  600 |
+| S2 | P3 | J6 |  400 |
+| S2 | P3 | J7 |  800 |
+| S2 | P5 | J2 |  100 |
+| S3 | P3 | J1 |  200 |
+| S3 | P4 | J2 |  500 |
+| S4 | P6 | J3 |  300 |
+| S4 | P6 | J7 |  300 |
+| S5 | P2 | J2 |  200 |
+| S5 | P2 | J4 |  100 |
+| S5 | P5 | J5 |  500 |
+| S5 | P5 | J7 |  100 |
+| S5 | P6 | J2 |  200 |
+| S5 | P1 | J4 |  100 |
+| S5 | P3 | J4 |  200 |
+| S5 | P4 | J4 |  800 |
++----+----+----+------+
+22 rows in set (0.00 sec)
+
+mysql> select sum(qty) from SP where `p#` = "P1";
++----------+
+| sum(qty) |
++----------+
+|     1000 |
++----------+
+1 row in set (0.00 sec)
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+12. Display all the Supplier names (with ‘la’ replaced by ‘ro’).
+HINT: REPLACE.
+
+mysql> select * from S;
++------+-------+--------+--------+
+| S#   | Sname | status | city   |
++------+-------+--------+--------+
+| S1   | Smith |     20 | London |
+| S2   | Jones |     10 | Paris  |
+| S3   | Blake |     30 | Paris  |
+| S4   | Clark |     20 | London |
+| S5   | Adams |     30 | Athens |
++------+-------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select replace(sname, "la", "ro") from S;
++----------------------------+
+| replace(sname, "la", "ro") |
++----------------------------+
+| Smith                      |
+| Jones                      |
+| Broke                      |
+| Crork                      |
+| Adams                      |
++----------------------------+
+5 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
