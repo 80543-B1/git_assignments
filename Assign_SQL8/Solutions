@@ -1,0 +1,156 @@
+1. Write a query that uses a subquery to obtain all orders for the customer named
+Cisneros. Assume you do not know his customer number (cnum).
+
+
+mysql> select onum , amt , odate , cnum from orders where cnum  = (select cnum from customers where cname = "Cisneros") ;
++------+---------+------------+------+
+| onum | amt     | odate      | cnum |
++------+---------+------------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 |
++------+---------+------------+------+
+2 rows in set (0.00 sec)
+
+
+
+
+2. Write a query that produces the names and ratings of all customers who have above-
+average orders.
+
+
+
+mysql> SELECT * FROM customers WHERE cnum = ANY(SELECT cnum from orders where amt > (select avg(amt) from orders));
++------+---------+----------+--------+------+
+| cnum | cname   | city     | rating | snum |
++------+---------+----------+--------+------+
+| 2003 | Liu     | San Jose |    200 | 1002 |
+| 2006 | Clemens | London   |    100 | 1001 |
++------+---------+----------+--------+------+
+2 rows in set (0.00 sec)
+
+
+
+
+3. Write a query that selects the total amount in orders for each salesperson for whom
+this total is greater than the amount of the largest order in the table.
+
+
+mysql> select snum  from orders group by snum having sum(amt ) > (SELECT max(amt) from
+orders);
++------+
+| snum |
++------+
+| 1001 |
++------+
+1 row in set (0.00 sec)
+
+
+
+
+
+4. Write a query that selects all customers whose ratings are equal to or greater than
+ANY of Serres’.
+
+
+mysql> select cname , rating from customers where rating > ANY(select rating from custo
+mers where snum = 1002 );
++----------+--------+
+| cname    | rating |
++----------+--------+
+| Grass    |    300 |
+| Cisneros |    300 |
++----------+--------+
+2 rows in set (0.00 sec)
+
+
+
+
+5. Write a query using ANY or ALL that will find all salespeople who have no customers
+located in their city.
+
+
+
+
+
+
+
+6. Write a query that selects all orders for amounts greater than any for the customers in
+London.
+
+
+
+
+
+
+
+7. Extract all the orders of Motika.
+
+
+
+
+
+
+
+
+8. Find all the order attribute to salespeople servicing customers in London.
+
+
+
+
+
+
+
+
+9. Find names and numbers of all salesperson who have more than one customer.
+
+
+
+
+
+
+
+
+
+10. Find salespeople number,name and city who have multiple customers.
+
+
+
+
+
+
+
+
+
+
+
+
+11. Select customers who have a greater rating than any other customer in Rome.
+
+
+
+
+
+
+
+12. Select all orders that had amounts that were greater that atleast one of the orders
+from ‘1990-10-04’ .
+
+
+
+
+
+
+
+
+13. Find all orders with amounts smaller than any amount for a customer in San Jose.
+
+
+
+
+
+
+
+
+
+
+14. Select those customers whose rating are higher than every customer in Paris.

@@ -337,11 +337,34 @@ having count(employee_id) > 1;
 days.
 
 
+mysql> SELECT job_id , count(employee_id) , sum(timestampdiff(day , start_date , end_date)) as days from job_history group by job_id  having days > 100 and count(employee_id) > 3;
+
+Empty set (0.00 sec)
 
 
 
 
 10. Display department ID, year, and Number of employees joined.
+
+
+mysql> select department_id , year(hire_date) as year , count(employee_id) as count from employees group by department_id , year;
++---------------+------+-------+
+| department_id | year | count |
++---------------+------+-------+
+|            90 | 1987 |     3 |
+|            60 | 1987 |     5 |
+|           100 | 1987 |     6 |
+|            30 | 1987 |     6 |
+|            50 | 1987 |    45 |
+|            80 | 1987 |    34 |
+|             0 | 1987 |     1 |
+|            10 | 1987 |     1 |
+|            20 | 1987 |     2 |
+|            40 | 1987 |     1 |
+|            70 | 1987 |     1 |
+|           110 | 1987 |     2 |
++---------------+------+-------+
+12 rows in set (0.00 sec)
 
 
 
@@ -367,7 +390,24 @@ mysql> select month(hire_date) as month , count(employee_id) from employees grou
 
 
 
-
+mysql> select department_id , max(salary) from employees  group by department_id;
++---------------+-------------+
+| department_id | max(salary) |
++---------------+-------------+
+|             0 |     7000.00 |
+|            10 |     4400.00 |
+|            20 |    13000.00 |
+|            30 |    11000.00 |
+|            40 |     6500.00 |
+|            50 |     8200.00 |
+|            60 |     9000.00 |
+|            70 |    10000.00 |
+|            80 |    14000.00 |
+|            90 |    24000.00 |
+|           100 |    12000.00 |
+|           110 |    12000.00 |
++---------------+-------------+
+12 rows in set (0.00 sec)
 
 
 
