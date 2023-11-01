@@ -4,24 +4,23 @@ made the order.
 
 
 
-mysql> select customers.cname from customers
-    -> join orders
-    -> on customers.cnum = orders.cnum;
-+----------+
-| cname    |
-+----------+
-| Cisneros |
-| Hoffman  |
-| Pereira  |
-| Liu      |
-| Cisneros |
-| Giovanni |
-| Grass    |
-| Clemens  |
-| Grass cv |
-| Clemens  |
-+----------+
+mysql> select orders.onum , customers.cname from customers join orders on customers.cnum = orders.cnum;
++------+----------+
+| onum | cname    |
++------+----------+
+| 3001 | Cisneros |
+| 3003 | Hoffman  |
+| 3002 | Pereira  |
+| 3005 | Liu      |
+| 3006 | Cisneros |
+| 3009 | Giovanni |
+| 3007 | Grass    |
+| 3008 | Clemens  |
+| 3010 | Grass    |
+| 3011 | Clemens  |
++------+----------+
 10 rows in set (0.00 sec)
+
 
 
 
