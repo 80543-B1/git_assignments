@@ -1,0 +1,114 @@
+1. Write a MongoDB query to find the restaurants which locate in latitude value less than
+-95.754168.
+
+
+db.restuarant.find( {'address.coord.0' : {$lt : -95.754 }})
+
+********************3*************************
+
+2. Write a MongoDB query to find the restaurants that do not prepare any cuisine of 'American'
+and their grade score more than 70 and latitude less than -65.754168.
+
+
+
+ db.restuarant.find( {$and : [ {cuisine : {$ne : "American "}} , {'grades.score' : {$gt : 70} } , { 'address.coord.0' : {$lt : -65.754}   }   ] } ).count()
+
+
+ ********************5**********************
+
+
+
+
+3. Write a MongoDB query to find the restaurants which do not prepare any cuisine of 'American'
+and achieved a score more than 70 and located in the longitude less than -65.754168.
+Note : Do this query without using $and operator.
+
+
+
+
+db.restuarant.find( { cuisine : {$ne : "American "} , "grades.score" : {$gt : 70} , "address.coords.1" : {$lt : -65.754}  }  )
+
+
+
+
+
+
+
+4. Write a MongoDB query to find the restaurant Id, name, borough and cuisine for those
+restaurants which contain 'Wil' as first three letters for its name.
+
+
+db.restuarant.find( {name : {$regex : /^Wil/ }} , {name : 1 , restaurant_id : 1 , borough : 1 , cusisine : 1}  ).count()
+
+3
+
+
+
+5. Write a MongoDB query to find the restaurant Id, name, borough and cuisine for those
+restaurants which contain 'ces' as last three letters for its name.
+
+
+
+db.restuarant.find( {name : {$regex : /ces$/ }} , {name : 1 , restaurant_id : 1 , borough : 1 , cusisine : 1}  ).count()
+
+
+6
+
+
+
+6. Write a MongoDB query to find the restaurant Id, name, borough and cuisine for those
+restaurants which contain 'Reg' as three letters somewhere in its name.
+
+
+dbda> db.restuarant.find( {name : {$regex : /Reg/ }} , {name : 1 , restaurant_id : 1 , borough : 1 , cusisine : 1}  ).count()
+
+
+7
+
+
+
+
+7. Write a MongoDB query to find the restaurants which belong to the borough Bronx and
+prepared either American or Chinese dish.
+
+
+db.restuarant.find({ $and :[ {borough : "Bronx"} , {cuisine : {$in : [ "American " , "Chinese"  ] } }   ]}  ).count()
+91
+
+
+
+
+8. Write a MongoDB query to arrange the name of the restaurants in ascending order along with
+all the columns.
+
+
+
+db.restuarant.find().sort({name : 1})
+
+
+
+
+9. Write a MongoDB query to arrange the name of the restaurants in descending along with all
+the columns.
+
+
+db.restuarant.find().sort({name : 1})
+
+
+
+
+10. Write a MongoDB query to arranged the name of the cuisine in ascending order and for that
+same cuisine borough should be in descending order.
+
+
+ db.restuarant.find().sort({name : 1 , borough : -1} )
+
+
+
+
+
+11. Write a MongoDB query to know whether all the addresses contains the street or not.
+
+db.restuarents.find({ "address.street" : {$exists : true} }).count()
+
+
