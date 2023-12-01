@@ -6,10 +6,15 @@ public class Day1_8 {
 	{
 		Scanner sc = new Scanner(System.in);
 		
-		String s1 = sc.next();
+		Float f1 = new Float((8.0/0.0)/(4.0/0.0));
 		
-		float f1;
+		if (Float.isNaN(f1))
+			System.out.println(true);
+		else
+			System.out.println(false);
+		sc.close();
+
 		
-		if {Float.parseFloat(s1) == "true" }
+		
 	}
 }
