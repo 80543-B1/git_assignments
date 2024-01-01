@@ -258,7 +258,7 @@ select e.name , d.dname , e.sal , (select sum(sal) from emp_staging as emp where
 15. Display all managers and presidents along with number of (immediate) subbordinates.
 
 
-select e2.name , count(*) from emp_staging as  e1 inner join emp_staging as e2 on e1.mgr = e2.id group by e2.name ;
+select e2.name , count(e1.job) from emp_staging as  e1 inner join emp_staging as e2 on e1.mgr = e2.id group by e2.name ;
 +-------+----------+
 | ename | count(*) |
 +-------+----------+
