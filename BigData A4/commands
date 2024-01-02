@@ -265,8 +265,7 @@ LOCATION '/user/john/movies/movies_caret_input'
 TBLPROPERTIES('skip.header.line.count'='1');
 
 
-select count(id) from  movies2
-. . . . . . . . . . . . . . . . . . . .> where size(genres) = 1;
+select count(id) from  movies2  where size(genres) = 1;
 
 +-------+
 |  _c0  |

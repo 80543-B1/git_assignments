@@ -1,6 +1,0 @@
-#! /usr/bin/bash
-
-#echo "login name : $(user)"
-#echo "home direcory : $(home)"
-
-$user
