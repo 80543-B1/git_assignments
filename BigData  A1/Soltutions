@@ -1,6 +1,7 @@
 -- 1. Retrieve the names of all customers who made a purchase.
 
-select c.name from customers as c inner join sales as s on c.customerid = s.customerid ;
+select c.name from customers as c inner join sales as s on c.customerid=s.customerid;
+
 +----------------+
 |     c.name     |
 +----------------+
@@ -9,74 +10,140 @@ select c.name from customers as c inner join sales as s on c.customerid = s.cust
 | Bob Johnson    |
 | Alice Brown    |
 | Charlie Davis  |
+| Charlie Davis  |
 +----------------+
 
-
 -- 2. List the products and their total sales amounts for a given date range.
+select p.productname, s.totalamount, s.saledate from products as p inner join sales as s on p.productid=s.productid;
 
-
-
-
++----------------+----------------+-------------+
+| p.productname  | s.totalamount  | s.saledate  |
++----------------+----------------+-------------+
+| Laptop         | 1600.00        | 2023-01-01  |
+| Smartphone     | 400.00         | 2023-01-03  |
+| T-shirt        | 60.00          | 2023-01-02  |
+| Shoes          | 100.00         | 2023-02-01  |
+| Bookshelf      | 150.00         | 2023-02-02  |
++----------------+----------------+-------------+
 
 
 -- 3. Find the total sales amount for each product category.
+select p.category, s.totalamount from products as p inner join sales as s on p.productid=s.productid;
 
-select p.productname , sum(s.totalamount) as sum from products as p inner join sales as s on p.productid = s.productid group by p.productname;
-
-+----------------+----------+
-| p.productname  |   sum    |
-+----------------+----------+
-| Bookshelf      | 150.00   |
-| Laptop         | 1600.00  |
-| Shoes          | 100.00   |
-| Smartphone     | 400.00   |
-| T-shirt        | 60.00    |
-+----------------+----------+
-
-
++--------------+----------------+
+|  p.category  | s.totalamount  |
++--------------+----------------+
+| Electronics  | 1600.00        |
+| Electronics  | 400.00         |
+| Clothing     | 60.00          |
+| Footwear     | 100.00         |
+| Furniture    | 150.00         |
++--------------+----------------+
 
 
 -- 4. Identify the customers who made purchases in a specific city.
+select c.name, l.city from customers as c inner join locations as l on c.locationid=l.locationid;
 
-
-
-
++----------------+------------+
+|     c.name     |   l.city   |
++----------------+------------+
+| John Doe       | Pune       |
+| Jane Smith     | Mumbai     |
+| Bob Johnson    | Pune       |
+| Alice Brown    | Bangalore  |
+| Charlie Davis  | Mumbai     |
+| Charlie Davis  | Mumbai     |
++----------------+------------+
 
 
 -- 5. Calculate the average age of customers who bought products in the 'Electronics' category.
 
+select avg(c.age), p.category from customers as c
+inner join sales as s on c.customerid=s.customerid
+inner join products as p on s.productid=p.productid
+where p.category="Electronics" group by p.category;
 
-
-
++-------+--------------+
+|  _c0  |  p.category  |
++-------+--------------+
+| 32.5  | Electronics  |
++-------+--------------+
 
 
 -- 6. List the top 3 products based on total sales amount.
 
+select p.productname, s.totalamount from products as p inner join sales as s on p.productid=s.productid order by s.totalamount desc limit 3;
 
-
-
-
++----------------+----------------+
+| p.productname  | s.totalamount  |
++----------------+----------------+
+| Laptop         | 1600.00        |
+| Smartphone     | 400.00         |
+| Bookshelf      | 150.00         |
++----------------+----------------+
 
 
 -- 7. Find the total sales amount for each month.
 
+select month(s.saledate), s.totalamount from sales as s;
+select sum(s.totalamount) as amount_total, month(s.saledate) as month from sales as s group by month(s.saledate);
 
-
-
++---------------+--------+
+| amount_total  | month  |
++---------------+--------+
+| 2060.00       | 1      |
+| 250.00        | 2      |
++---------------+--------+
 
 
 
 -- 8. Identify the products with no sales.
 
+select p.productname from products as p inner join sales as s on p.productid=s.productid where s.productid!=p.productid;
 
-
++----------------+
+| p.productname  |
++----------------+
++----------------+
 
 
 -- 9. Calculate the total sales amount for each state.
 
+xxxselect sum(s.totalamount), l.state from sales as s inner join locations a on 
 
+select s.totalamount, l.state from customers as c 
+inner join sales as s on c.customerid=s.customerid
+inner join locations as l on c.locationid=l.locationid;
 
+select sum(s.totalamount), l.state from customers as c 
+inner join sales as s on c.customerid=s.customerid
+inner join locations as l on c.locationid=l.locationid group by l.state;
 
++----------+--------------+
+|   _c0    |   l.state    |
++----------+--------------+
+| 100.00   | Karnataka    |
+| 2360.00  | Maharashtra  |
++----------+--------------+
 
 
 -- 10. Retrieve the customer names and their highest purchase amount.
+
+select c.name, s.totalamount from customers as c inner join sales as s on c.customerid=s.customerid;
+
++----------------+----------------+
+|     c.name     | s.totalamount  |
++----------------+----------------+
+| John Doe       | 1600.00        |
+| Jane Smith     | 60.00          |
+| Bob Johnson    | 400.00         |
+| Alice Brown    | 100.00         |
+| Charlie Davis  | 150.00         |
+| Charlie Davis  | 150.00         |
++----------------+----------------+
+
+
+
+
+
+
